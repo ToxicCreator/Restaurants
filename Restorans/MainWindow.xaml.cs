@@ -22,9 +22,14 @@ namespace Restorans
   public partial class MainWindow : Window
   {
 
-        public MainWindow()
-        {
-                InitializeComponent();
-        }
+    public MainWindow()
+    {
+            InitializeComponent();
+    }
+
+    private void Check_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+    {
+
+    }
   } 
 }
