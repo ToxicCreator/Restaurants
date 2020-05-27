@@ -14,7 +14,7 @@ public class OpenData
     public OpenData(string fileName)
     {
         string fullPath = Path.Combine(Directory.GetCurrentDirectory(), fileName);
-        string json = File.ReadAllText(fullPath, Encoding.Default);
+        string json = File.ReadAllText(fullPath, Encoding.UTF8);
         restorans = JsonConvert.DeserializeObject<FoodPlace[]>(json);
     }
 
