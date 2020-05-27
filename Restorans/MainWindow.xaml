@@ -41,9 +41,28 @@
                 </Border>
             </Grid>
         </Grid>
-        <ScrollViewer>
-            <StackPanel x:Name="MainSP">
-                
+        <ScrollViewer >
+            <StackPanel x:Name="MainSP" Background="LightGray">
+                <Border Background="White" Margin="5" Height="200" BorderThickness="2" BorderBrush="SlateGray" CornerRadius="6">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition Height="5"/>
+                            <RowDefinition Height="2*"/>
+                        </Grid.RowDefinitions>
+                        <Separator Grid.Row="1"/>
+                    </Grid>
+                </Border>
+                <Border Background="White" Margin="5" Height="200" BorderThickness="2" BorderBrush="SlateGray" CornerRadius="6">
+                    <Grid>
+
+                    </Grid>
+                </Border>
+                <Border Background="White" Margin="5" Height="200" BorderThickness="2" BorderBrush="SlateGray" CornerRadius="6">
+                    <Grid>
+
+                    </Grid>
+                </Border>
             </StackPanel>
         </ScrollViewer>
     </DockPanel>
