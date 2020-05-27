@@ -21,22 +21,16 @@ namespace Restorans
   /// </summary>
   public partial class MainWindow : Window
   {
-        OpenData openData;
-        public MainWindow()
-        {
-            InitializeComponent();
-            openData = new OpenData("OpenData.json");
-
-        }
-
+    OpenData openData;
     public MainWindow()
     {
-            InitializeComponent();
+        InitializeComponent();
+        openData = new OpenData("OpenData.json");
     }
 
-    private void Check_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+    private void Check_Click(object sender, RoutedEventArgs e)
     {
-
+      
     }
   } 
 }
