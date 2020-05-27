@@ -114,5 +114,10 @@ namespace Restorans
     {
 
     }
+
+    private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+    {
+
+    }
   } 
 }
