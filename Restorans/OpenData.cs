@@ -10,29 +10,25 @@ using System.Linq;
 public class OpenData
 {
     private FoodPlace[] restorans;
+    private Dictionary<string, FoodPlace[]> foodPlaceSortedByType;
 
     public OpenData(string fileName)
     {
         string fullPath = Path.Combine(Directory.GetCurrentDirectory(), fileName);
         string json = File.ReadAllText(fullPath, Encoding.UTF8);
         restorans = JsonConvert.DeserializeObject<FoodPlace[]>(json);
+
+        string[] types = GetUniqueType();
+        foodPlaceSortedByType = new Dictionary<string, FoodPlace[]>(types.Length);
+        foreach(string type in types)
+        {
+            foodPlaceSortedByType[type.ToLower()] = FindFoodPlacesOnTypeObject(type);
+        }
     }
 
     public FoodPlace[] GetFoodPlaces()
     {
         return restorans;
-    }
-
-    public FoodPlace[] FindFoodPlaces(string name)
-    {
-        if (name.Length > 0)
-        {
-            return restorans.Where(food => food.Name.ToLower().Contains(name.ToLower())).ToArray();
-        }
-        else
-        {
-            return restorans;
-        }
     }
 
     public FoodPlace[] FindFoodPlaces(string name, FoodPlace[] foodPlaces) //Делает поиск среди массива foodPlaces
@@ -58,12 +54,17 @@ public class OpenData
         return types.Distinct().ToArray();
     }
 
-    public FoodPlace[] FindFoodPlacesOnTypeObject(string typeObject)
+    private FoodPlace[] FindFoodPlacesOnTypeObject(string typeObject)
     {
         return restorans.Where(food => food.TypeObject.ToLower().Contains(typeObject.ToLower())).ToArray();
     }
 
-        
+    public FoodPlace[] FindOnType(string typeObject)
+    {
+        return foodPlaceSortedByType[typeObject.ToLower()];
+    }
+
+
 
 }
 
