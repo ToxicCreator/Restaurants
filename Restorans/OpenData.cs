@@ -34,37 +34,6 @@ public class OpenData
             return restorans;
         }
     }
-
-    public FoodPlace[] FindFoodPlaces(string name, FoodPlace[] foodPlaces) //Делает поиск среди массива foodPlaces
-    {
-        if (name.Length > 0)
-        {
-            return foodPlaces.Where(food => food.Name.ToLower().Contains(name.ToLower())).ToArray();
-        }
-        else
-        {
-            return restorans;
-        }
-    }
-
-    public string[] GetUniqueType()
-    {
-        List<string> types = new List<string>();
-        foreach (var x in restorans)
-        {
-            types.Add(x.TypeObject);
-        }
-
-        return types.Distinct().ToArray();
-    }
-
-    public FoodPlace[] FindFoodPlacesOnTypeObject(string typeObject)
-    {
-        return restorans.Where(food => food.TypeObject.ToLower().Contains(typeObject.ToLower())).ToArray();
-    }
-
-        
-
 }
 
 public class PublicPhoneItem

@@ -58,31 +58,31 @@
                 </Grid.RowDefinitions>
 
                 <Label Content="Ресторан" FontSize="16" HorizontalAlignment="Right"/>
-                <CheckBox x:Name="RestoransCheck" Grid.Column="1" VerticalContentAlignment="Center" HorizontalAlignment="Center" Click="Check_Click"/>
+                <CheckBox x:Name="RestoransCheck" Grid.Column="1" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
 
                 <Label Content="Бар" Grid.Row="1" FontSize="16" HorizontalAlignment="Right"/>
-                <CheckBox x:Name="BarCheck" Grid.Column="1" Grid.Row="1" VerticalContentAlignment="Center" HorizontalAlignment="Center" Click="Check_Click"/>
+                <CheckBox x:Name="BarCheck" Grid.Column="1" Grid.Row="1" VerticalContentAlignment="Center" HorizontalAlignment="Center" />
 
                 <Label Content="Кафе" Grid.Row="2" FontSize="16" HorizontalAlignment="Right"/>
-                <CheckBox x:Name="CafeCheck" Grid.Column="1" Grid.Row="2" VerticalContentAlignment="Center" HorizontalAlignment="Center" Click="Check_Click"/>
+                <CheckBox x:Name="CafeCheck" Grid.Column="1" Grid.Row="2" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
 
                 <Label Content="Кафетерий" Grid.Row="3" FontSize="16" HorizontalAlignment="Right"/>
-                <CheckBox x:Name="CafeteriaCheck" Grid.Column="1" Grid.Row="3" VerticalContentAlignment="Center" HorizontalAlignment="Center" Click="Check_Click"/>
+                <CheckBox x:Name="CafeteriaCheck" Grid.Column="1" Grid.Row="3" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
 
                 <Label Content="Столовая" Grid.Row="4" FontSize="16" HorizontalAlignment="Right"/>
-                <CheckBox x:Name="CanteenCheck" Grid.Column="1" Grid.Row="4" VerticalContentAlignment="Center" HorizontalAlignment="Center" Click="Check_Click"/>
+                <CheckBox x:Name="CanteenCheck" Grid.Column="1" Grid.Row="4" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
 
                 <Label Content="Фастфуд" Grid.Row="5" FontSize="16" HorizontalAlignment="Right"/>
-                <CheckBox x:Name="FastFoodCheck" Grid.Column="1" Grid.Row="5" VerticalContentAlignment="Center" HorizontalAlignment="Center" Click="Check_Click"/>
+                <CheckBox x:Name="FastFoodCheck" Grid.Column="1" Grid.Row="5" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
 
                 <Label Content="Буфет" Grid.Row="6" FontSize="16" HorizontalAlignment="Right"/>
-                <CheckBox x:Name="BuffetCheck" Grid.Column="1" Grid.Row="6" VerticalContentAlignment="Center" HorizontalAlignment="Center" Click="Check_Click"/>
+                <CheckBox x:Name="BuffetCheck" Grid.Column="1" Grid.Row="6" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
 
                 <Label Content="Закусочная" Grid.Row="7" FontSize="16" HorizontalAlignment="Right"/>
-                <CheckBox x:Name="DinerCheck" Grid.Column="1" Grid.Row="7" VerticalContentAlignment="Center" HorizontalAlignment="Center" Click="Check_Click"/>
+                <CheckBox x:Name="DinerCheck" Grid.Column="1" Grid.Row="7" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
 
                 <Label Content="Отдел кулинарии" Grid.Row="8" FontSize="16" HorizontalAlignment="Right"/>
-                <CheckBox x:Name="ShopCheck" Grid.Column="1" Grid.Row="8" VerticalContentAlignment="Center" HorizontalAlignment="Center" Click="Check_Click"/>
+                <CheckBox x:Name="ShopCheck" Grid.Column="1" Grid.Row="8" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
             </Grid>
         </Grid>
         <ScrollViewer >
