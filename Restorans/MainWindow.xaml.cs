@@ -32,105 +32,82 @@ namespace Restorans
 
     private void Check_Click(object sender, RoutedEventArgs e)
     {
-           CheckBox checkBox = (CheckBox)e.Source;
-            switch(checkBox.Name)
+           FoodPlace[] foodPlaces = new FoodPlace[]();
+
+            if (RestoransCheck.IsChecked == true)
             {
-                case "RestoransCheck":
-                    if (checkBox.IsChecked == true)
-                    {
-                        FillCollection(foodPlaces.Union(openData.FindFoodPlacesOnTypeObject("Ресторан")).ToArray());
-                    }
-                    if(checkBox.IsChecked == false)
-                    {
-                        FillCollection(foodPlaces.Except(openData.FindFoodPlacesOnTypeObject("Ресторан")).ToArray());
-                    }
-                    break;
-                case "BarCheck":
-                    if (checkBox.IsChecked == true)
-                    {
-                        FillCollection(foodPlaces.Union(openData.FindFoodPlacesOnTypeObject("Бар")).ToArray());
-                    }
-                    if (checkBox.IsChecked == false)
-                    {
-                        FillCollection(foodPlaces.Except(openData.FindFoodPlacesOnTypeObject("Бар")).ToArray());
-                    }
-                    break;
-                case "CafeCheck":
-                    if (checkBox.IsChecked == true)
-                    {
-                        FillCollection(foodPlaces.Union(openData.FindFoodPlacesOnTypeObject("Кафе")).ToArray());
-                    }
-                    if (checkBox.IsChecked == false)
-                    {
-                        FillCollection(foodPlaces.Except(openData.FindFoodPlacesOnTypeObject("Кафе")).ToArray());
-                    }
-                    break;
-                case "CafeteriaCheck":
-                    if (checkBox.IsChecked == true)
-                    {
-                        FillCollection(foodPlaces.Union(openData.FindFoodPlacesOnTypeObject("Кафетерий")).ToArray());
-                    }
-                    if (checkBox.IsChecked == false)
-                    {
-                        FillCollection(foodPlaces.Except(openData.FindFoodPlacesOnTypeObject("Кафетерий")).ToArray());
-                    }
-                    
-                    break;
-                case "CanteenCheck":
-                    if (checkBox.IsChecked == true)
-                    {
-                        FillCollection(foodPlaces.Union(openData.FindFoodPlacesOnTypeObject("Столовая")).ToArray());
-                    }
-                    if (checkBox.IsChecked == false)
-                    {
-                        FillCollection(foodPlaces.Except(openData.FindFoodPlacesOnTypeObject("Столовая")).ToArray());
-                    }
-                    
-                    break;
-                case "FastFoodCheck":
-                    if (checkBox.IsChecked == true)
-                    {
-                        FillCollection(foodPlaces.Union(openData.FindFoodPlacesOnTypeObject("Ресторан быстрого питания")).ToArray());
-                    }
-                    if (checkBox.IsChecked == false)
-                    {
-                        FillCollection(foodPlaces.Except(openData.FindFoodPlacesOnTypeObject("Ресторан быстрого питания")).ToArray());
-                    }
-                    
-                    break;
-                case "BuffetCheck":
-                    if (checkBox.IsChecked == true)
-                    {
-                        FillCollection(foodPlaces.Union(openData.FindFoodPlacesOnTypeObject("Буфет")).ToArray());
-                    }
-                    if (checkBox.IsChecked == false)
-                    {
-                        FillCollection(foodPlaces.Except(openData.FindFoodPlacesOnTypeObject("Буфет")).ToArray());
-                    }
-                    
-                    break;
-                case "DinerCheck":
-                    if (checkBox.IsChecked == true)
-                    {
-                        FillCollection(foodPlaces.Union(openData.FindFoodPlacesOnTypeObject("Закусочная")).ToArray());
-                    }
-                    if (checkBox.IsChecked == false)
-                    {
-                        FillCollection(foodPlaces.Except(openData.FindFoodPlacesOnTypeObject("Закусочная")).ToArray());
-                    }
-                    
-                    break;
-                case "ShopCheck":
-                    if (checkBox.IsChecked == true)
-                    {
-                        FillCollection(foodPlaces.Union(openData.FindFoodPlacesOnTypeObject("магазин (отдел кулинарии)")).ToArray());
-                    }
-                    if (checkBox.IsChecked == false)
-                    {
-                        FillCollection(foodPlaces.Except(openData.FindFoodPlacesOnTypeObject("магазин (отдел кулинарии)")).ToArray());
-                    }
-                    break;
+                foodPlaces.Union(openData.FindFoodPlacesOnTypeObject("Ресторан")).ToArray();
             }
+            if (RestoransCheck.IsChecked != true)
+            {
+                foodPlaces.Except(openData.FindFoodPlacesOnTypeObject("Ресторан")).ToArray();
+            }
+            if (BarCheck.IsChecked == true)
+            {
+                foodPlaces.Union(openData.FindFoodPlacesOnTypeObject("Бар")).ToArray();
+            }
+            if (BarCheck.IsChecked != true)
+            {
+                foodPlaces.Except(openData.FindFoodPlacesOnTypeObject("Бар")).ToArray();
+            }
+            if (CafeCheck.IsChecked == true)
+            {
+                foodPlaces.Union(openData.FindFoodPlacesOnTypeObject("Кафе")).ToArray();
+            }
+            if (CafeCheck.IsChecked != true)
+            {
+               foodPlaces.Except(openData.FindFoodPlacesOnTypeObject("Кафе")).ToArray();
+            }
+            if (CafeteriaCheck.IsChecked == true)
+            {
+                foodPlaces.Union(openData.FindFoodPlacesOnTypeObject("Кафетерий")).ToArray();
+            }
+            if (CafeteriaCheck.IsChecked != true)
+            {
+                foodPlaces.Except(openData.FindFoodPlacesOnTypeObject("Кафетерий")).ToArray();
+            }
+            if (checkBox.IsChecked == true)
+            {
+                foodPlaces.Union(openData.FindFoodPlacesOnTypeObject("Столовая")).ToArray();
+            }
+            if (checkBox.IsChecked != true)
+            {
+                foodPlaces.Except(openData.FindFoodPlacesOnTypeObject("Столовая")).ToArray();
+            }
+            if (checkBox.IsChecked == true)
+            {
+                foodPlaces.Union(openData.FindFoodPlacesOnTypeObject("Ресторан быстрого питания")).ToArray();
+            }
+            if (checkBox.IsChecked != true)
+            {
+                foodPlaces.Except(openData.FindFoodPlacesOnTypeObject("Ресторан быстрого питания")).ToArray();
+            }
+            if (checkBox.IsChecked == true)
+            {
+                foodPlaces.Union(openData.FindFoodPlacesOnTypeObject("Буфет")).ToArray();
+            }
+            if (checkBox.IsChecked != true)
+            {
+                foodPlaces.Except(openData.FindFoodPlacesOnTypeObject("Буфет")).ToArray();
+            }
+            if (checkBox.IsChecked == true)
+            {
+                foodPlaces.Union(openData.FindFoodPlacesOnTypeObject("Закусочная")).ToArray();
+            }
+            if (checkBox.IsChecked != true)
+            {
+                foodPlaces.Except(openData.FindFoodPlacesOnTypeObject("Закусочная")).ToArray();
+            }
+            if (checkBox.IsChecked == true)
+            {
+                foodPlaces.Union(openData.FindFoodPlacesOnTypeObject("магазин (отдел кулинарии)")).ToArray();
+            }
+            if (checkBox.IsChecked != true)
+            {
+                foodPlaces.Except(openData.FindFoodPlacesOnTypeObject("магазин (отдел кулинарии)")).ToArray();
+            }
+            this.foodPlaces = foodPlaces;
+            FillCollection(this.foodPlaces);
     }
 
     public void FillCollection(FoodPlace[] collection)
