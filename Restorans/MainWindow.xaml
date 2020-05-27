@@ -20,7 +20,7 @@
                 <ColumnDefinition/>
                 <ColumnDefinition Width="400"/>
             </Grid.ColumnDefinitions>
-            <Label Content="Рестораны" FontSize="32" FontStyle="Italic" Margin="30 0 0 0"/>
+            <Label Content="Рестораны" FontSize="32" FontWeight="Bold" FontStyle="Italic" Margin="40 0 0 0"/>
             <Grid Grid.Column="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="60"/>
@@ -43,7 +43,7 @@
             <Grid Margin="10 10 0 10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
-                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="30"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -88,24 +88,23 @@
         <ScrollViewer >
             <StackPanel x:Name="MainSP" Background="LightGray">
                 <Border Background="White" Margin="5" Height="200" BorderThickness="2" BorderBrush="SlateGray" CornerRadius="6">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition Height="5"/>
-                            <RowDefinition Height="2*"/>
-                        </Grid.RowDefinitions>
-                        <Separator Grid.Row="1"/>
-                    </Grid>
-                </Border>
-                <Border Background="White" Margin="5" Height="200" BorderThickness="2" BorderBrush="SlateGray" CornerRadius="6">
-                    <Grid>
+                    <DockPanel>
+                        <Label DockPanel.Dock="Top" Content="Название" FontSize="36" HorizontalContentAlignment="Center"/>
 
-                    </Grid>
-                </Border>
-                <Border Background="White" Margin="5" Height="200" BorderThickness="2" BorderBrush="SlateGray" CornerRadius="6">
-                    <Grid>
+                        <StackPanel DockPanel.Dock="Left">
+                            <Label Content="Адрес" FontSize="18"/>
+                            <Label Content="Телефон" FontSize="18"/>
+                        </StackPanel>
 
-                    </Grid>
+                        <Grid DockPanel.Dock="Right" Width="160">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Content="Тип:" FontSize="22"/>
+                            <TextBlock Grid.Row="1" Padding="10" TextAlignment="Center" FontSize="20" Text="Предприятия быстрого обслуживания" TextWrapping="Wrap"/>
+                        </Grid>
+                    </DockPanel>
                 </Border>
             </StackPanel>
         </ScrollViewer>
