@@ -113,10 +113,6 @@ namespace Restorans
             {
                 foodPlaces = foodPlaces.Except(openData.FindOnType("магазин (отдел кулинарии)")).ToArray();
             }
-            //if (SearchTextBox.Text.Length > 0)
-            //{
-            //    this.foodPlaces = openData.FindFoodPlaces(SearchTextBox.Text, foodPlaces);
-            //}
             return foodPlaces;
         }
 
