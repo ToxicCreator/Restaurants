@@ -36,6 +36,9 @@ namespace Restorans
             foodPlaces = CheckTags(openData.GetFoodPlaces());
             SearchTextBox.Text = null;
 
+            if (foodPlaces.Length < 1)
+                foodPlaces = openData.GetFoodPlaces();
+
             FillCollection(foodPlaces);
     }
 
