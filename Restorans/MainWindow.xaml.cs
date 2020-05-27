@@ -66,43 +66,43 @@ namespace Restorans
             {
                 foodPlaces.Except(openData.FindFoodPlacesOnTypeObject("Кафетерий")).ToArray();
             }
-            if (checkBox.IsChecked == true)
+            if (CanteenCheck.IsChecked == true)
             {
                 foodPlaces.Union(openData.FindFoodPlacesOnTypeObject("Столовая")).ToArray();
             }
-            if (checkBox.IsChecked != true)
+            if (CanteenCheck.IsChecked != true)
             {
                 foodPlaces.Except(openData.FindFoodPlacesOnTypeObject("Столовая")).ToArray();
             }
-            if (checkBox.IsChecked == true)
+            if (FastFoodCheck.IsChecked == true)
             {
                 foodPlaces.Union(openData.FindFoodPlacesOnTypeObject("Ресторан быстрого питания")).ToArray();
             }
-            if (checkBox.IsChecked != true)
+            if (FastFoodCheck.IsChecked != true)
             {
                 foodPlaces.Except(openData.FindFoodPlacesOnTypeObject("Ресторан быстрого питания")).ToArray();
             }
-            if (checkBox.IsChecked == true)
+            if (BuffetCheck.IsChecked == true)
             {
                 foodPlaces.Union(openData.FindFoodPlacesOnTypeObject("Буфет")).ToArray();
             }
-            if (checkBox.IsChecked != true)
+            if (BuffetCheck.IsChecked != true)
             {
                 foodPlaces.Except(openData.FindFoodPlacesOnTypeObject("Буфет")).ToArray();
             }
-            if (checkBox.IsChecked == true)
+            if (DinerCheck.IsChecked == true)
             {
                 foodPlaces.Union(openData.FindFoodPlacesOnTypeObject("Закусочная")).ToArray();
             }
-            if (checkBox.IsChecked != true)
+            if (DinerCheck.IsChecked != true)
             {
                 foodPlaces.Except(openData.FindFoodPlacesOnTypeObject("Закусочная")).ToArray();
             }
-            if (checkBox.IsChecked == true)
+            if (ShopCheck.IsChecked == true)
             {
                 foodPlaces.Union(openData.FindFoodPlacesOnTypeObject("магазин (отдел кулинарии)")).ToArray();
             }
-            if (checkBox.IsChecked != true)
+            if (ShopCheck.IsChecked != true)
             {
                 foodPlaces.Except(openData.FindFoodPlacesOnTypeObject("магазин (отдел кулинарии)")).ToArray();
             }
