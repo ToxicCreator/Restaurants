@@ -71,7 +71,7 @@
 
                 <Label Content="Столовая" Grid.Row="4" FontSize="16" HorizontalAlignment="Right"/>
                 <CheckBox x:Name="CanteenCheck" Grid.Column="1" Grid.Row="4" VerticalContentAlignment="Center" HorizontalAlignment="Center" Click="Check_Click"/>
-                
+
                 <Label Content="Фастфуд" Grid.Row="5" FontSize="16" HorizontalAlignment="Right"/>
                 <CheckBox x:Name="FastFoodCheck" Grid.Column="1" Grid.Row="5" VerticalContentAlignment="Center" HorizontalAlignment="Center" Click="Check_Click"/>
 
@@ -87,24 +87,49 @@
         </Grid>
         <ScrollViewer >
             <StackPanel x:Name="MainSP" Background="LightGray">
-                <Border Background="White" Margin="5" Height="200" BorderThickness="2" BorderBrush="SlateGray" CornerRadius="6">
-                    <DockPanel>
-                        <Label DockPanel.Dock="Top" Content="Название" FontSize="36" HorizontalContentAlignment="Center"/>
+                <ListBox x:Name="MainLB">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border Background="White" Margin="5" Height="200" BorderThickness="2" BorderBrush="SlateGray" CornerRadius="6">
+                                <Grid>
 
-                        <StackPanel DockPanel.Dock="Left">
-                            <Label Content="Адрес" FontSize="18"/>
-                            <Label Content="Телефон" FontSize="18"/>
-                        </StackPanel>
-
-                        <Grid DockPanel.Dock="Right" Width="160">
-                            <Grid.RowDefinitions>
-                                <RowDefinition/>
-                                <RowDefinition Height="Auto"/>
-                            </Grid.RowDefinitions>
-                            <Label Content="Тип:" FontSize="22"/>
-                            <TextBlock Grid.Row="1" Padding="10" TextAlignment="Center" FontSize="20" Text="Предприятия быстрого обслуживания" TextWrapping="Wrap"/>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ListBox>
+                <Border Margin="5" Height="200" BorderThickness="2" BorderBrush="SlateGray" CornerRadius="6">
+                    <Border.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFE1FFED" Offset="1"/>
+                            <GradientStop Color="#FFD2F9FF"/>
+                            <GradientStop Color="White" Offset="0.535"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="2*"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Название" FontSize="24" VerticalContentAlignment="Center" Padding="20 0 0 0"/>
+                            <Border Grid.Column="1" Background="White" CornerRadius="10" Height="45" Padding="10 0 10 0" Margin="0 0 15 0" BorderBrush="LightBlue" BorderThickness="2">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Content="Тип:" Grid.Column="0" FontSize="18" VerticalAlignment="Center"/>
+                                    <Label Content="Предприятия быстрого обслуживания" Grid.Column="1" FontSize="18" VerticalAlignment="Center"/>
+                                </Grid>
+                            </Border>
+                            
                         </Grid>
-                    </DockPanel>
+                    </Grid>
                 </Border>
             </StackPanel>
         </ScrollViewer>
