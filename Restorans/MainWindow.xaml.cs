@@ -112,7 +112,7 @@ namespace Restorans
 
     public void FillCollection(FoodPlace[] collection)
     {
-
+      MainLB.ItemsSource = collection;
     }
 
     private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
