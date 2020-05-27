@@ -22,6 +22,11 @@ public class OpenData
         return restorans;
     }
 
+    public FoodPlace[] FindFoodPlaces(string name)
+    {
+        return restorans.Where(food => food.Name.ToLower().Contains(name.ToLower())).ToArray();
+    }
+
     public string[] GetUniqueType()
     {
         List<string> types = new List<string>();
@@ -31,6 +36,11 @@ public class OpenData
         }
         
         return types.Distinct().ToArray();
+    }
+
+    public FoodPlace[] FindFoodPlaceOnTypeObject(string typeObject)
+    {
+        return restorans.Where(food => food.TypeObject.Contains(typeObject)).ToArray();
     }
 
     public class PublicPhoneItem
