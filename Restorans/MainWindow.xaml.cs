@@ -21,10 +21,12 @@ namespace Restorans
   /// </summary>
   public partial class MainWindow : Window
   {
-
+        OpenData openData;
         public MainWindow()
         {
-                InitializeComponent();
+            InitializeComponent();
+            openData = new OpenData("OpenData.json");
+
         }
   } 
 }
