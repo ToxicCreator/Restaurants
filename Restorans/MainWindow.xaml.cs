@@ -26,17 +26,6 @@ namespace Restorans
         {
             InitializeComponent();
             openData = new OpenData("OpenData.json");
-
         }
-
-    public MainWindow()
-    {
-            InitializeComponent();
-    }
-
-    private void Check_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-    {
-
-    }
   } 
 }
