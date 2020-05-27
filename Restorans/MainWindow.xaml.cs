@@ -129,5 +129,18 @@ namespace Restorans
             
             FillCollection(openData.FindFoodPlaces(SearchTextBox.Text, foodPlaces));
     }
+
+    private void ClearButton_Click(object sender, RoutedEventArgs e)
+    {
+      RestoransCheck.IsChecked = false;
+      BarCheck.IsChecked = false;
+      CafeCheck.IsChecked = false;
+      CafeteriaCheck.IsChecked = false;
+      CanteenCheck.IsChecked = false;
+      FastFoodCheck.IsChecked = false;
+      BuffetCheck.IsChecked = false;
+      DinerCheck.IsChecked = false;
+      ShopCheck.IsChecked = false;
+    }
   } 
 }
