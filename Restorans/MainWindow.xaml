@@ -6,8 +6,10 @@
         xmlns:local="clr-namespace:Restorans"
         mc:Ignorable="d"
         Title="MainWindow" 
-        Height="650" Width="1000"
-        MinHeight="450" MinWidth="800">
+        Height="850" Width="1400"
+        MinHeight="850" MinWidth="1400"
+        MaxHeight="850" MaxWidth="1400"
+        ResizeMode="CanMinimize">
     <DockPanel>
         <Grid DockPanel.Dock="Top" Height="60">
             <Grid.Background>
@@ -32,7 +34,7 @@
                 </Border>
             </Grid>
         </Grid>
-        <Grid Width="170">
+        <Grid Width="180">
             <Grid.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFFFF19A" Offset="0"/>
@@ -84,13 +86,32 @@
                 <Label Content="Отдел кулинарии" Grid.Row="8" FontSize="16" HorizontalAlignment="Right"/>
                 <CheckBox x:Name="ShopCheck" Grid.Column="1" Grid.Row="8" VerticalContentAlignment="Center" HorizontalAlignment="Center" Click="Check_Click"/>
             </Grid>
+            <Image Source="/Resources/loza.png" Width="350" VerticalAlignment="Bottom" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <TranslateTransform Y="70" X="-24"/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
         </Grid>
-        <ScrollViewer >
-            <StackPanel x:Name="MainSP" Background="LightGray">
-                <ListBox x:Name="MainLB">
+        <ScrollViewer  Background="LightGray">
+            <StackPanel x:Name="MainSP">
+                <ListBox x:Name="MainLB" ScrollViewer.VerticalScrollBarVisibility="Visible" >
+                    <ListBox.Template>
+                        <ControlTemplate TargetType="ItemsControl">
+                            <Border>
+                                <ItemsPresenter/>
+                            </Border>
+                        </ControlTemplate>
+                    </ListBox.Template>
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel />
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Border Margin="5" Height="210" BorderThickness="2" BorderBrush="SlateGray" CornerRadius="6">
+                            <Border Margin="5" Height="210" MinWidth="1165" MaxWidth="1165" BorderThickness="2" BorderBrush="SlateGray" CornerRadius="6">
                                 <Border.Background>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="#FFE1FFED" Offset="1"/>
@@ -148,61 +169,6 @@
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ListBox>
-                <Border Margin="5" Height="210" BorderThickness="2" BorderBrush="SlateGray" CornerRadius="6">
-                    <Border.Background>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="#FFE1FFED" Offset="1"/>
-                            <GradientStop Color="#FFD2F9FF"/>
-                            <GradientStop Color="White" Offset="0.535"/>
-                        </LinearGradientBrush>
-                    </Border.Background>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="1*"/>
-                            <RowDefinition Height="5"/>
-                            <RowDefinition Height="3*"/>
-                        </Grid.RowDefinitions>
-                        <Separator Grid.Row="1"/>
-                        <Grid Grid.Row="0">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
-                                <ColumnDefinition Width="Auto"/>
-                            </Grid.ColumnDefinitions>
-                            <Label Content="Название" FontSize="24" FontWeight="Bold" VerticalContentAlignment="Center" Padding="20 0 0 0"/>
-                            <Border Grid.Column="1" Background="White" CornerRadius="10" Height="40" Padding="10 0 10 0" Margin="0 0 15 0" BorderBrush="LightBlue" BorderThickness="2">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Label Content="Тип:" Grid.Column="0" FontSize="18" VerticalAlignment="Center"/>
-                                    <Label Content="Предприятия быстрого обслуживания" Grid.Column="1" FontSize="18" FontWeight="Light" VerticalAlignment="Center"/>
-                                </Grid>
-                            </Border>
-                        </Grid>
-                        <Grid Grid.Row="2" Margin="10">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                            </Grid.RowDefinitions>
-                            <Label Content="Число посадочных пест:" FontSize="16" HorizontalContentAlignment="Right"/>
-                            <Label Content="Социальные привелегии:" Grid.Row="1" FontSize="16" HorizontalContentAlignment="Right"/>
-                            <Label Content="Адрес:" Grid.Row="2" FontSize="16" HorizontalContentAlignment="Right"/>
-                            <Label Content="Телефон:" Grid.Row="3" FontSize="16" HorizontalContentAlignment="Right"/>
-
-                            <Label Grid.Column="1" Grid.Row="0" FontSize="16"/>
-                            <Label Grid.Column="1" Grid.Row="1" FontSize="16"/>
-                            <Label Grid.Column="1" Grid.Row="2" FontSize="16"/>
-                            <Label Grid.Column="1" Grid.Row="3" FontSize="16"/>
-                        </Grid>
-                    </Grid>
-                </Border>
             </StackPanel>
         </ScrollViewer>
     </DockPanel>
