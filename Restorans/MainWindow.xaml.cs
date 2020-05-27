@@ -35,8 +35,10 @@ namespace Restorans
     {
             foodPlaces = CheckTags(openData.GetFoodPlaces());
             SearchTextBox.Text = null;
+            if (foodPlaces.Length < 1)
+              foodPlaces = openData.GetFoodPlaces();
 
-            FillCollection(foodPlaces);
+      FillCollection(foodPlaces);
     }
 
         private FoodPlace[] CheckTags(FoodPlace[] foodPlaces)
@@ -129,6 +131,19 @@ namespace Restorans
     {
             
             FillCollection(openData.FindFoodPlaces(SearchTextBox.Text, foodPlaces));
+    }
+
+    private void ClearButton_Click(object sender, RoutedEventArgs e)
+    {
+      RestoransCheck.IsChecked = false;
+      BarCheck.IsChecked = false;
+      CafeCheck.IsChecked = false;
+      CafeteriaCheck.IsChecked = false;
+      CanteenCheck.IsChecked = false;
+      FastFoodCheck.IsChecked = false;
+      BuffetCheck.IsChecked = false;
+      DinerCheck.IsChecked = false;
+      ShopCheck.IsChecked = false;
     }
   } 
 }
