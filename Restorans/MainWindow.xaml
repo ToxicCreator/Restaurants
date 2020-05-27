@@ -6,7 +6,15 @@
         xmlns:local="clr-namespace:Restorans"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <DockPanel>
+        <Grid Background="Red" Width="100">
+            
+        </Grid>
+        <Grid Background="Blue" DockPanel.Dock="Top" Height="100">
+            
+        </Grid>
+        <Grid Background="White" DockPanel.Dock="Bottom">
+            
+        </Grid>
+    </DockPanel>
 </Window>

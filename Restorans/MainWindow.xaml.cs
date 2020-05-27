@@ -22,7 +22,7 @@ namespace Restorans
   {
     public MainWindow()
     {
-      InitializeComponent(); //fsefd
+      InitializeComponent();
     }
   }
 }
