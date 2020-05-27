@@ -32,7 +32,7 @@
                 </Border>
             </Grid>
         </Grid>
-        <Grid Width="100">
+        <Grid Width="170">
             <Grid.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFFFF19A" Offset="0"/>
@@ -40,11 +40,49 @@
                     <GradientStop Color="#FFFFF7BE" Offset="0.528"/>
                 </LinearGradientBrush>
             </Grid.Background>
-            <Grid Margin="0 10 0 10">
+            <Grid Margin="10 10 0 10">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="40"/>
                     <ColumnDefinition/>
+                    <ColumnDefinition Width="20"/>
                 </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Label Content="Ресторан" FontSize="16" HorizontalAlignment="Right"/>
+                <CheckBox Grid.Column="1" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
+
+                <Label Content="Бар" Grid.Row="1" FontSize="16" HorizontalAlignment="Right"/>
+                <CheckBox Grid.Column="1" Grid.Row="1" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
+
+                <Label Content="Кафе" Grid.Row="2" FontSize="16" HorizontalAlignment="Right"/>
+                <CheckBox Grid.Column="1" Grid.Row="2" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
+
+                <Label Content="Кафетерий" Grid.Row="3" FontSize="16" HorizontalAlignment="Right"/>
+                <CheckBox Grid.Column="1" Grid.Row="3" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
+
+                <Label Content="Столовая" Grid.Row="4" FontSize="16" HorizontalAlignment="Right"/>
+                <CheckBox Grid.Column="1" Grid.Row="4" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
+
+                <Label Content="Фастфуд" Grid.Row="5" FontSize="16" HorizontalAlignment="Right"/>
+                <CheckBox Grid.Column="1" Grid.Row="5" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
+
+                <Label Content="Буфет" Grid.Row="6" FontSize="16" HorizontalAlignment="Right"/>
+                <CheckBox Grid.Column="1" Grid.Row="6" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
+
+                <Label Content="Закусочная" Grid.Row="7" FontSize="16" HorizontalAlignment="Right"/>
+                <CheckBox Grid.Column="1" Grid.Row="7" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
+
+                <Label Content="Отдел кулинарии" Grid.Row="8" FontSize="16" HorizontalAlignment="Right"/>
+                <CheckBox Grid.Column="1" Grid.Row="8" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
             </Grid>
         </Grid>
         <ScrollViewer >
