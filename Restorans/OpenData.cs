@@ -6,6 +6,7 @@ using Newtonsoft.Json.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+
 public class OpenData
 {
     private FoodPlace[] restorans;
@@ -27,62 +28,69 @@ public class OpenData
         return restorans.Where(food => food.Name.ToLower().Contains(name.ToLower())).ToArray();
     }
 
+    public FoodPlace[] FindFoodPlaces(string name, FoodPlace[] foodPlaces) //Делает поиск среди массива foodPlaces
+    {
+        return foodPlaces.Where(food => food.Name.ToLower().Contains(name.ToLower())).ToArray();
+    }
+
     public string[] GetUniqueType()
     {
         List<string> types = new List<string>();
-        foreach(var x in restorans)
+        foreach (var x in restorans)
         {
             types.Add(x.TypeObject);
         }
-        
+
         return types.Distinct().ToArray();
     }
 
-    public FoodPlace[] FindFoodPlaceOnTypeObject(string typeObject)
+    public FoodPlace[] FindFoodPlacesOnTypeObject(string typeObject)
     {
-        return restorans.Where(food => food.TypeObject.Contains(typeObject)).ToArray();
+        return restorans.Where(food => food.TypeObject.ToLower().Contains(typeObject.ToLower())).ToArray();
     }
 
-    public class PublicPhoneItem
-    {
-        public string PublicPhone { get; set; }
-    }
+        
 
-    public class GeoData
-    {
-        public string type { get; set; }
-        public List<double> coordinates { get; set; }
-    }
+}
 
-    public class FoodPlace
-    {
-        public int global_id { get; set; }
+public class PublicPhoneItem
+{
+    public string PublicPhone { get; set; }
+}
 
-        public string Latitude_WGS84 { get; set; }
+public class GeoData
+{
+    public string type { get; set; }
+    public List<double> coordinates { get; set; }
+}
 
-        public string ID { get; set; }
+public class FoodPlace
+{
+    public int global_id { get; set; }
 
-        public string Name { get; set; }
+    public string Latitude_WGS84 { get; set; }
 
-        public string IsNetObject { get; set; }
+    public string ID { get; set; }
 
-        public string TypeObject { get; set; }
+    public string Name { get; set; }
 
-        public string AdmArea { get; set; }
+    public string IsNetObject { get; set; }
 
-        public string District { get; set; }
+    public string TypeObject { get; set; }
 
-        public string Address { get; set; }
+    public string AdmArea { get; set; }
 
-        public List<PublicPhoneItem> PublicPhone { get; set; }
+    public string District { get; set; }
 
-        public int SeatsCount { get; set; }
+    public string Address { get; set; }
 
-        public string SocialPrivileges { get; set; }
+    public List<PublicPhoneItem> PublicPhone { get; set; }
 
-        public string Longitude_WGS84 { get; set; }
+    public int SeatsCount { get; set; }
 
-        public GeoData geoData { get; set; }
-    }
+    public string SocialPrivileges { get; set; }
 
+    public string Longitude_WGS84 { get; set; }
+
+    public GeoData geoData { get; set; }
 }
