@@ -5,19 +5,32 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 public class OpenData
 {
-    private static FoodPlace[] restorans;
+    private FoodPlace[] restorans;
 
     public OpenData(string fileName)
     {
         string fullPath = Path.Combine(Directory.GetCurrentDirectory(), fileName);
-        string json = File.ReadAllText(fullPath);
+        string json = File.ReadAllText(fullPath, Encoding.Default);
+        restorans = JsonConvert.DeserializeObject<FoodPlace[]>(json);
     }
 
     public FoodPlace[] GetFoodPlaces()
     {
         return restorans;
+    }
+
+    public string[] GetUniqueType()
+    {
+        List<string> types = new List<string>();
+        foreach(var x in restorans)
+        {
+            types.Add(x.TypeObject);
+        }
+        
+        return types.Distinct().ToArray();
     }
 
     public class PublicPhoneItem
