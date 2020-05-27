@@ -22,8 +22,7 @@ namespace Restorans
   {
     public MainWindow()
     {
-      InitializeComponent();
-            //Саня ты в порядке
+      InitializeComponent(); //fsefd
     }
   }
 }
