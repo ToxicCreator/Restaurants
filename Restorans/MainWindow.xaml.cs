@@ -33,83 +33,94 @@ namespace Restorans
 
     private void Check_Click(object sender, RoutedEventArgs e)
     {
-            FoodPlace[] foodPlaces = null;
+            var foodPlaces = CheckTags(openData.FindFoodPlaces(SearchTextBox.Text));
 
+            if(foodPlaces.Length < 1)
+                foodPlaces = openData.FindFoodPlaces(SearchTextBox.Text);
+
+            FillCollection(foodPlaces);
+    }
+
+        private FoodPlace[] CheckTags(FoodPlace[] foodPlaces)
+        {
             if (RestoransCheck.IsChecked == true)
             {
-                foodPlaces.Union(openData.FindFoodPlacesOnTypeObject("Ресторан")).ToArray();
+                foodPlaces = foodPlaces.Union(openData.FindFoodPlacesOnTypeObject("Ресторан")).ToArray();
             }
             if (RestoransCheck.IsChecked != true)
             {
-                foodPlaces.Except(openData.FindFoodPlacesOnTypeObject("Ресторан")).ToArray();
+                foodPlaces = foodPlaces.Except(openData.FindFoodPlacesOnTypeObject("Ресторан")).ToArray();
             }
             if (BarCheck.IsChecked == true)
             {
-                foodPlaces.Union(openData.FindFoodPlacesOnTypeObject("Бар")).ToArray();
+                foodPlaces = foodPlaces.Union(openData.FindFoodPlacesOnTypeObject("Бар")).ToArray();
             }
             if (BarCheck.IsChecked != true)
             {
-                foodPlaces.Except(openData.FindFoodPlacesOnTypeObject("Бар")).ToArray();
+                foodPlaces = foodPlaces.Except(openData.FindFoodPlacesOnTypeObject("Бар")).ToArray();
             }
             if (CafeCheck.IsChecked == true)
             {
-                foodPlaces.Union(openData.FindFoodPlacesOnTypeObject("Кафе")).ToArray();
+                foodPlaces = foodPlaces.Union(openData.FindFoodPlacesOnTypeObject("Кафе")).ToArray();
             }
             if (CafeCheck.IsChecked != true)
             {
-               foodPlaces.Except(openData.FindFoodPlacesOnTypeObject("Кафе")).ToArray();
+                foodPlaces = foodPlaces.Except(openData.FindFoodPlacesOnTypeObject("Кафе")).ToArray();
             }
             if (CafeteriaCheck.IsChecked == true)
             {
-                foodPlaces.Union(openData.FindFoodPlacesOnTypeObject("Кафетерий")).ToArray();
+                foodPlaces = foodPlaces.Union(openData.FindFoodPlacesOnTypeObject("Кафетерий")).ToArray();
             }
             if (CafeteriaCheck.IsChecked != true)
             {
-                foodPlaces.Except(openData.FindFoodPlacesOnTypeObject("Кафетерий")).ToArray();
+                foodPlaces = foodPlaces.Except(openData.FindFoodPlacesOnTypeObject("Кафетерий")).ToArray();
             }
             if (CanteenCheck.IsChecked == true)
             {
-                foodPlaces.Union(openData.FindFoodPlacesOnTypeObject("Столовая")).ToArray();
+                foodPlaces = foodPlaces.Union(openData.FindFoodPlacesOnTypeObject("Столовая")).ToArray();
             }
             if (CanteenCheck.IsChecked != true)
             {
-                foodPlaces.Except(openData.FindFoodPlacesOnTypeObject("Столовая")).ToArray();
+                foodPlaces = foodPlaces.Except(openData.FindFoodPlacesOnTypeObject("Столовая")).ToArray();
             }
             if (FastFoodCheck.IsChecked == true)
             {
-                foodPlaces.Union(openData.FindFoodPlacesOnTypeObject("Ресторан быстрого питания")).ToArray();
+                foodPlaces = foodPlaces.Union(openData.FindFoodPlacesOnTypeObject("Предприятие быстрого обслуживания")).ToArray();
             }
             if (FastFoodCheck.IsChecked != true)
             {
-                foodPlaces.Except(openData.FindFoodPlacesOnTypeObject("Ресторан быстрого питания")).ToArray();
+                foodPlaces = foodPlaces.Except(openData.FindFoodPlacesOnTypeObject("Предприятие быстрого обслуживания")).ToArray();
             }
             if (BuffetCheck.IsChecked == true)
             {
-                foodPlaces.Union(openData.FindFoodPlacesOnTypeObject("Буфет")).ToArray();
+                foodPlaces = foodPlaces.Union(openData.FindFoodPlacesOnTypeObject("Буфет")).ToArray();
             }
             if (BuffetCheck.IsChecked != true)
             {
-                foodPlaces.Except(openData.FindFoodPlacesOnTypeObject("Буфет")).ToArray();
+                foodPlaces = foodPlaces.Except(openData.FindFoodPlacesOnTypeObject("Буфет")).ToArray();
             }
             if (DinerCheck.IsChecked == true)
             {
-                foodPlaces.Union(openData.FindFoodPlacesOnTypeObject("Закусочная")).ToArray();
+                foodPlaces = foodPlaces.Union(openData.FindFoodPlacesOnTypeObject("Закусочная")).ToArray();
             }
             if (DinerCheck.IsChecked != true)
             {
-                foodPlaces.Except(openData.FindFoodPlacesOnTypeObject("Закусочная")).ToArray();
+                foodPlaces = foodPlaces.Except(openData.FindFoodPlacesOnTypeObject("Закусочная")).ToArray();
             }
             if (ShopCheck.IsChecked == true)
             {
-                foodPlaces.Union(openData.FindFoodPlacesOnTypeObject("магазин (отдел кулинарии)")).ToArray();
+                foodPlaces = foodPlaces.Union(openData.FindFoodPlacesOnTypeObject("магазин (отдел кулинарии)")).ToArray();
             }
             if (ShopCheck.IsChecked != true)
             {
-                foodPlaces.Except(openData.FindFoodPlacesOnTypeObject("магазин (отдел кулинарии)")).ToArray();
+                foodPlaces = foodPlaces.Except(openData.FindFoodPlacesOnTypeObject("магазин (отдел кулинарии)")).ToArray();
             }
-            this.foodPlaces = openData.FindFoodPlaces(SearchTextBox.Text, foodPlaces);
-            FillCollection(this.foodPlaces);
-    }
+            //if (SearchTextBox.Text.Length > 0)
+            //{
+            //    this.foodPlaces = openData.FindFoodPlaces(SearchTextBox.Text, foodPlaces);
+            //}
+            return foodPlaces;
+        }
 
     public void FillCollection(FoodPlace[] collection)
     {
@@ -118,8 +129,9 @@ namespace Restorans
 
     private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
     {
-      this.foodPlaces = openData.FindFoodPlaces(SearchTextBox.Text, this.foodPlaces);
-      FillCollection(foodPlaces);
+            //this.foodPlaces = openData.FindFoodPlaces(SearchTextBox.Text, this.foodPlaces);
+            var foodPlaces = openData.FindFoodPlaces(SearchTextBox.Text);
+            FillCollection(foodPlaces);
     }
   } 
 }

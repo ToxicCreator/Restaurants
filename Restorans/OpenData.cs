@@ -14,7 +14,7 @@ public class OpenData
     public OpenData(string fileName)
     {
         string fullPath = Path.Combine(Directory.GetCurrentDirectory(), fileName);
-        string json = File.ReadAllText(fullPath, Encoding.Default);
+        string json = File.ReadAllText(fullPath, Encoding.UTF8);
         restorans = JsonConvert.DeserializeObject<FoodPlace[]>(json);
     }
 
@@ -25,12 +25,26 @@ public class OpenData
 
     public FoodPlace[] FindFoodPlaces(string name)
     {
-        return restorans.Where(food => food.Name.ToLower().Contains(name.ToLower())).ToArray();
+        if (name.Length > 0)
+        {
+            return restorans.Where(food => food.Name.ToLower().Contains(name.ToLower())).ToArray();
+        }
+        else
+        {
+            return restorans;
+        }
     }
 
     public FoodPlace[] FindFoodPlaces(string name, FoodPlace[] foodPlaces) //Делает поиск среди массива foodPlaces
     {
-        return foodPlaces.Where(food => food.Name.ToLower().Contains(name.ToLower())).ToArray();
+        if (name.Length > 0)
+        {
+            return foodPlaces.Where(food => food.Name.ToLower().Contains(name.ToLower())).ToArray();
+        }
+        else
+        {
+            return restorans;
+        }
     }
 
     public string[] GetUniqueType()
