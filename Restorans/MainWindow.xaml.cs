@@ -25,9 +25,10 @@ namespace Restorans
         FoodPlace[] foodPlaces;
     public MainWindow()
     {
-        InitializeComponent();
-        openData = new OpenData("OpenData.json");
-            foodPlaces = openData.GetFoodPlaces();
+      InitializeComponent();
+      openData = new OpenData("OpenData1.json");
+      foodPlaces = openData.GetFoodPlaces();
+      FillCollection(foodPlaces);
     }
 
     private void Check_Click(object sender, RoutedEventArgs e)
@@ -117,8 +118,8 @@ namespace Restorans
 
     private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
     {
-            this.foodPlaces = openData.FindFoodPlaces(SearchTextBox.Text, this.foodPlaces);
-            FillCollection(foodPlaces);
+      this.foodPlaces = openData.FindFoodPlaces(SearchTextBox.Text, this.foodPlaces);
+      FillCollection(foodPlaces);
     }
   } 
 }

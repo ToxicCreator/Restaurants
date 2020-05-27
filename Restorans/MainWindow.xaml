@@ -90,9 +90,59 @@
                 <ListBox x:Name="MainLB">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Border Background="White" Margin="5" Height="200" BorderThickness="2" BorderBrush="SlateGray" CornerRadius="6">
+                            <Border Margin="5" Height="210" BorderThickness="2" BorderBrush="SlateGray" CornerRadius="6">
+                                <Border.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FFE1FFED" Offset="1"/>
+                                        <GradientStop Color="#FFD2F9FF"/>
+                                        <GradientStop Color="White" Offset="0.535"/>
+                                    </LinearGradientBrush>
+                                </Border.Background>
                                 <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="1*"/>
+                                        <RowDefinition Height="5"/>
+                                        <RowDefinition Height="3*"/>
+                                    </Grid.RowDefinitions>
+                                    <Separator Grid.Row="1"/>
+                                    <Grid Grid.Row="0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Content="{Binding Name}" FontSize="24" FontWeight="Bold" VerticalContentAlignment="Center" Padding="20 0 0 0"/>
+                                        <Border Grid.Column="1" Background="White" CornerRadius="10" Height="40" Padding="10 0 10 0" Margin="0 0 15 0" BorderBrush="LightBlue" BorderThickness="2">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Label Content="Тип:" Grid.Column="0" FontSize="18" VerticalAlignment="Center"/>
+                                                <Label Content="{Binding TypeObject}" Grid.Column="1" FontSize="18" FontWeight="Light" VerticalAlignment="Center"/>
+                                            </Grid>
+                                        </Border>
+                                    </Grid>
+                                    <Grid Grid.Row="2" Margin="10">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <Label Content="Число посадочных пест:" FontSize="16" HorizontalContentAlignment="Right"/>
+                                        <Label Content="Социальные привелегии:" Grid.Row="1" FontSize="16" HorizontalContentAlignment="Right"/>
+                                        <Label Content="Адрес:" Grid.Row="2" FontSize="16" HorizontalContentAlignment="Right"/>
+                                        <Label Content="Телефон:" Grid.Row="3" FontSize="16" HorizontalContentAlignment="Right"/>
 
+                                        <Label Content="{Binding SeatsCount}" Grid.Column="1" Grid.Row="0" FontSize="16"/>
+                                        <Label Content="{Binding SocialPrivileges}" Grid.Column="1" Grid.Row="1" FontSize="16"/>
+                                        <Label Content="{Binding Address}" Grid.Column="1" Grid.Row="2" FontSize="16"/>
+                                        <Label Content="{Binding PublicPhone[0].PublicPhone}" Grid.Column="1" Grid.Row="3" FontSize="16"/>
+                                    </Grid>
                                 </Grid>
                             </Border>
                         </DataTemplate>
