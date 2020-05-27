@@ -32,7 +32,7 @@ namespace Restorans
 
     private void Check_Click(object sender, RoutedEventArgs e)
     {
-           FoodPlace[] foodPlaces = new FoodPlace[]();
+            FoodPlace[] foodPlaces = null;
 
             if (RestoransCheck.IsChecked == true)
             {
@@ -106,18 +106,19 @@ namespace Restorans
             {
                 foodPlaces.Except(openData.FindFoodPlacesOnTypeObject("магазин (отдел кулинарии)")).ToArray();
             }
-            this.foodPlaces = foodPlaces;
+            this.foodPlaces = openData.FindFoodPlaces(SearchTextBox.Text, foodPlaces);
             FillCollection(this.foodPlaces);
     }
 
     public void FillCollection(FoodPlace[] collection)
     {
-
+            
     }
 
     private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
     {
-
+            this.foodPlaces = openData.FindFoodPlaces(SearchTextBox.Text, this.foodPlaces);
+            FillCollection(foodPlaces);
     }
   } 
 }
