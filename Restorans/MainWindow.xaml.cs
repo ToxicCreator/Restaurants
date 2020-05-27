@@ -25,7 +25,6 @@ namespace Restorans
     public MainWindow()
     {
       InitializeComponent();
-            JsonConvert.DesirializeObject();
     }
   }
 }
