@@ -34,12 +34,11 @@ namespace Restorans
     private void Check_Click(object sender, RoutedEventArgs e)
     {
             foodPlaces = CheckTags(openData.GetFoodPlaces());
-            SearchTextBox.Text = null;
 
             if (foodPlaces.Length < 1)
                 foodPlaces = openData.GetFoodPlaces();
 
-            FillCollection(foodPlaces);
+            FillCollection(openData.FindFoodPlaces(SearchTextBox.Text, foodPlaces));
     }
 
         private FoodPlace[] CheckTags(FoodPlace[] foodPlaces)
@@ -48,74 +47,83 @@ namespace Restorans
             {
                 foodPlaces = foodPlaces.Union(openData.FindOnType("Ресторан")).ToArray();
             }
-            if (RestoransCheck.IsChecked != true)
+            else
             {
                 foodPlaces = foodPlaces.Except(openData.FindOnType("Ресторан")).ToArray();
             }
+
             if (BarCheck.IsChecked == true)
             {
                 foodPlaces = foodPlaces.Union(openData.FindOnType("Бар")).ToArray();
-            }
-            if (BarCheck.IsChecked != true)
+            } 
+            else
             {
                 foodPlaces = foodPlaces.Except(openData.FindOnType("Бар")).ToArray();
             }
+
             if (CafeCheck.IsChecked == true)
             {
                 foodPlaces = foodPlaces.Union(openData.FindOnType("Кафе")).ToArray();
             }
-            if (CafeCheck.IsChecked != true)
+            else
             {
                 foodPlaces = foodPlaces.Except(openData.FindOnType("Кафе")).ToArray();
             }
+
             if (CafeteriaCheck.IsChecked == true)
             {
                 foodPlaces = foodPlaces.Union(openData.FindOnType("Кафетерий")).ToArray();
             }
-            if (CafeteriaCheck.IsChecked != true)
+            else
             {
                 foodPlaces = foodPlaces.Except(openData.FindOnType("Кафетерий")).ToArray();
             }
+
             if (CanteenCheck.IsChecked == true)
             {
                 foodPlaces = foodPlaces.Union(openData.FindOnType("Столовая")).ToArray();
             }
-            if (CanteenCheck.IsChecked != true)
+            else
             {
                 foodPlaces = foodPlaces.Except(openData.FindOnType("Столовая")).ToArray();
             }
+
             if (FastFoodCheck.IsChecked == true)
             {
                 foodPlaces = foodPlaces.Union(openData.FindOnType("Предприятие быстрого обслуживания")).ToArray();
             }
-            if (FastFoodCheck.IsChecked != true)
+            else
             {
                 foodPlaces = foodPlaces.Except(openData.FindOnType("Предприятие быстрого обслуживания")).ToArray();
             }
+
             if (BuffetCheck.IsChecked == true)
             {
                 foodPlaces = foodPlaces.Union(openData.FindOnType("Буфет")).ToArray();
             }
-            if (BuffetCheck.IsChecked != true)
+            else
             {
                 foodPlaces = foodPlaces.Except(openData.FindOnType("Буфет")).ToArray();
             }
+
             if (DinerCheck.IsChecked == true)
             {
                 foodPlaces = foodPlaces.Union(openData.FindOnType("Закусочная")).ToArray();
             }
-            if (DinerCheck.IsChecked != true)
+            else
             {
                 foodPlaces = foodPlaces.Except(openData.FindOnType("Закусочная")).ToArray();
             }
+
             if (ShopCheck.IsChecked == true)
             {
                 foodPlaces = foodPlaces.Union(openData.FindOnType("магазин (отдел кулинарии)")).ToArray();
             }
-            if (ShopCheck.IsChecked != true)
+            else
             {
                 foodPlaces = foodPlaces.Except(openData.FindOnType("магазин (отдел кулинарии)")).ToArray();
             }
+
             return foodPlaces;
         }
 

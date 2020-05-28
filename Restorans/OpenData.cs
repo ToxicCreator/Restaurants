@@ -39,11 +39,11 @@ public class OpenData
         }
         else
         {
-            return restorans;
+            return foodPlaces;
         }
     }
 
-    public string[] GetUniqueType()
+    private string[] GetUniqueType()
     {
         List<string> types = new List<string>();
         foreach (var x in restorans)
